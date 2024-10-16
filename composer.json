@@ -1,0 +1,42 @@
+{
+    "name": "vptrading/safaricom-ussd",
+    "description": "Easy package to ease your safaricom integration",
+    "license": "MIT",
+    "version": "1.0.0-dev",
+    "authors": [
+        {
+            "name": "Alazar Kassahun",
+            "email": "alazarkassahun@vptrading.et",
+            "homepage": "https://vptrading.et"
+        }
+    ],
+    "homepage": "https://github.com/vp-trading/safaricom-ussd",
+    "keywords": ["Laravel", "Safaricom", "SafaricomUssd", "PHP", "VP", "VPTrading"],
+    "require": {
+        "illuminate/support": ">=9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vptrading\\SafaricomUssd\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Vptrading\\SafaricomUssd\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Vptrading\\SafaricomUssd\\SafaricomUssdServiceProvider"
+            ],
+            "aliases": {
+                "SafaricomUssd": "Vptrading\\SafaricomUssd\\Facades\\SafaricomUssd"
+            }
+        }
+    }
+}
