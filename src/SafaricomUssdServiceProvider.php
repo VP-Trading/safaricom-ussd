@@ -13,12 +13,6 @@ class SafaricomUssdServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'vptrading');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'vptrading');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
-        // Publishing is only necessary when using the CLI.
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
         }
@@ -31,7 +25,7 @@ class SafaricomUssdServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/safaricom-ussd.php', 'safaricom-ussd');
+        $this->mergeConfigFrom(__DIR__ . '/../config/safaricom-ussd.php', 'safaricom-ussd');
 
         // Register the service the package provides.
         $this->app->singleton('safaricom-ussd', function ($app) {
@@ -58,25 +52,7 @@ class SafaricomUssdServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/safaricom-ussd.php' => config_path('safaricom-ussd.php'),
+            __DIR__ . '/../config/safaricom-ussd.php' => config_path('safaricom-ussd.php'),
         ], 'safaricom-ussd.config');
-
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/vptrading'),
-        ], 'safaricom-ussd.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/vptrading'),
-        ], 'safaricom-ussd.assets');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/vptrading'),
-        ], 'safaricom-ussd.lang');*/
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }
