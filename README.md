@@ -164,3 +164,5 @@ MIT. Please see the [license file](license.md) for more information.
 [link-downloads]: https://packagist.org/packages/vptrading/safaricom-ussd
 [link-author]: https://github.com/vptrading
 [link-contributors]: ../../contributors
+
+🚀 And that's it. Do your thing and Give us a star if this helped you.🚀
