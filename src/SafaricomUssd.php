@@ -2,7 +2,11 @@
 
 namespace Vptrading\SafaricomUssd;
 
+use Exception;
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Vptrading\SafaricomUssd\Facades\Utility;
 
 class SafaricomUssd
@@ -36,12 +40,28 @@ class SafaricomUssd
             $payload['ReferenceData'] = $referenceData;
         }
 
-        $auth = Http::withBasicAuth(config('safaricom-ussd.consumer_key'), config('safaricom-ussd.consumer_secret'))
-            ->get(config('safaricom-ussd.auth_url'));
+        $auth = $this->getAccessToken(config('safaricom-ussd.consumer_key'), config('safaricom-ussd.consumer_secret'));
 
-        $response = Http::withToken($auth->json('access_token'))
+        if (!$auth->successful()) {
+            throw new Exception($auth->json('resultDesc'), $auth->json('resultCode'));
+        }
+
+        $response = Http::withToken($auth['access_token'])
             ->post(config('safaricom-ussd.checkout_url'), $payload);
 
         return $response->json();
+    }
+
+    public function getAccessToken(string $consumerKey, string $consumerSecret): Response
+    {
+        $response = Http::withBasicAuth($consumerKey, $consumerSecret)
+            ->get(config('safaricom-ussd.auth_url'));
+
+        return $response;
+    }
+
+    public function deconstruct(string $callbackData): array
+    {
+        return json_decode($callbackData, true);
     }
 }

@@ -11,13 +11,20 @@
         }
     ],
     "homepage": "https://github.com/vp-trading/safaricom-ussd",
-    "keywords": ["Laravel", "Safaricom", "SafaricomUssd", "PHP", "VP", "VPTrading"],
+    "keywords": [
+        "Laravel",
+        "Safaricom",
+        "SafaricomUssd",
+        "PHP",
+        "VP",
+        "VPTrading"
+    ],
     "require": {
         "illuminate/support": ">=9.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~9.0",
-        "orchestra/testbench": "~7"
+        "orchestra/testbench": ">=7"
     },
     "autoload": {
         "psr-4": {
@@ -38,5 +45,7 @@
                 "SafaricomUssd": "Vptrading\\SafaricomUssd\\Facades\\SafaricomUssd"
             }
         }
-    }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
