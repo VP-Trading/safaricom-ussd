@@ -1,4 +1,4 @@
-<p align="center"><a href="https://vptrading.et"><img src="/imgs/logo.png" alt="VP Logo"></a></p>
+<p align="center"><a href="https://vptrading.et"><img src="/src/imgs/logo.png" alt="VP Logo"></a></p>
 
 <h1 align="center">Laravel Package For<br> Safaricom USSD</h1>
 
