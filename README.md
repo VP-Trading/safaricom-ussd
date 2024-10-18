@@ -12,7 +12,7 @@ This Laravel package is a featherweight package to integrate Safaricom MPesa.
 Via Composer
 
 ```bash
-composer require vp-trading/safaricom-ussd
+composer require vptrading/safaricom-ussd
 ```
 
 Run the artisan command to publish the Vptrading\SafaricomUssd configuration file.
