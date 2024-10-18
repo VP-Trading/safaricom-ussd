@@ -2,7 +2,7 @@
     "name": "vptrading/safaricom-ussd",
     "description": "Easy package to ease your safaricom integration",
     "license": "MIT",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "authors": [
         {
             "name": "Alazar Kassahun",
