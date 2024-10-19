@@ -49,7 +49,7 @@ class SafaricomUssd
         $response = Http::withToken($auth['access_token'])
             ->post(config('safaricom-ussd.checkout_url'), $payload);
 
-        if ((string) $response->json('ResponseCode') !== 0) {
+        if ((string) $response->json('ResponseCode') !== "0") {
             throw new Exception($response->json('ResponseDescription'), $response->json('ResponseCode'));
         }
 
